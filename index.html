@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blur basics</title>
+    <style>
+        .container {
+            background: url('https://api.tago.io/file/6021b441fc48a400183c9604/pngtree-nighttime-metropolis-of-the-future-illuminated-by-neon-hues-of-purple-image_3865337.jpg') center/cover no-repeat;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .container .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            left: -40px;
+        }
+
+        .example-1 .row .tile {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            background-color: rgba(255, 255, 255, 0); /* Adjust the color and alpha as needed */
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-2 .row .tile {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            background-color: rgba(255, 255, 255, 0); /* Adjust the color and alpha as needed */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-2 .row .tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            top: 50%; /* Move the top of the pseudo-element to the center vertically */
+            left: 30%; /* Move the left of the pseudo-element to the center horizontally */
+            transform: translate(-20%, -50%);
+            background-attachment: fixed;
+            background: inherit;
+            backdrop-filter: blur(10px);
+            opacity: 1; /* Adjust the opacity as needed */
+        }
+
+        .example-3 .row .tile {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            background-color: rgba(255, 255, 255, 0); /* Adjust the color and alpha as needed */
+            position: relative;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .example-3 .row .tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            background: inherit;
+            opacity: 1; /* Adjust the opacity as needed */
+            rotate: 90deg;
+            backdrop-filter: blur(10px); /* Adjust the blur strength as needed */
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.2));
+        }
+    </style>
+</head>
+<body>
+    <div class="container example-1">
+        <div class="row">
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </div>
+    </div>
+    <div class="container example-2">
+        <div class="row">
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </div>
+    </div>
+    <div class="container example-3">
+        <div class="row">
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </div>
+    </div>
+</body>
+</html>
